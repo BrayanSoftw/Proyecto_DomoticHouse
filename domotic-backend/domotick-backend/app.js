@@ -1,6 +1,8 @@
+
 const express = require('express');
 const app = express();
 
+const authRoutes = require('./routes/auth');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const habitacionRoutes = require('./routes/habitacionRoutes');
 const dispositivoRoutes = require('./routes/dispositivoRoutes');
@@ -9,6 +11,7 @@ const configRoutes = require('./routes/configRoutes');
 
 app.use(express.json());
 
+app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/habitaciones', habitacionRoutes);
 app.use('/api/dispositivos', dispositivoRoutes);
