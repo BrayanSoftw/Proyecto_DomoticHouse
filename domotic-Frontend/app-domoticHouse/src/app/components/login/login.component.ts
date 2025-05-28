@@ -16,7 +16,7 @@ export class LoginComponent {
   login() {
     const credentials = {
       email: this.email,
-      contraseña: this.password
+      password: this.password
     };
 
     this.http.post<any>('http://localhost:3000/api/auth/login', credentials)

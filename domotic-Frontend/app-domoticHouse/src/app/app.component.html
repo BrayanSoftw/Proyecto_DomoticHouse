@@ -1,5 +1,4 @@
-<nav>
-  <a routerLink="/login">Login</a> |
+<nav *ngIf="isLoggedIn()">
   <a routerLink="/dashboard">Dashboard</a> |
   <a routerLink="/usuarios">Usuarios</a> |
   <a routerLink="/habitaciones">Habitaciones</a> |
