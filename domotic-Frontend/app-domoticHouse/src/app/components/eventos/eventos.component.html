@@ -1,1 +1,72 @@
 <p>eventos works!</p>
+<div style="padding: 50px;">
+  <h1 class="text-center">Modulo de Eventos 'DomoticHouse'</h1>
+
+  <form (ngSubmit)="agregarEvento()" #cursoForm="ngForm" class="mb-4">
+    <div class="mb-3">
+      <label for="event_id" class="form-label">Numero de Eventos</label>
+      <input type="number" class="form-control" id="event_id" required [(ngModel)]="nuevoHabitacion.event_id" name="event_id" />
+    </div>
+
+    <div class="mb-3">
+      <label for="tipo_evento" class="form-label">Tipo de Evento</label>
+      <input type="number" class="form-control" id="tipo_evento" required [(ngModel)]="nuevoHabitacion.tipo_evento" name="tipo_evento" />
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha_hora" class="form-label">Fecha/Hora</label>
+      <input type="number" class="form-control" id="fecha_hora" required [(ngModel)]="nuevoHabitacion.fecha_hora" name="fecha_hora" />
+    </div>
+
+    <div class="mb-3">
+      <label for="valor_anterior" class="form-label">Valor Anterior</label>
+      <input type="number" class="form-control" id="valor_anterior" required [(ngModel)]="nuevoHabitacion.valor_anterior" name="valor_anterior" />
+    </div>
+
+    <div class="mb-3">
+      <label for="valor_nuevo" class="form-label">Valor Nuevo</label>
+      <input type="number" class="form-control" id="valor_nuevo" required [(ngModel)]="nuevoHabitacion.valor_nuevo" name="valor_nuevo" />
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion</label>
+      <input type="number" class="form-control" id="descripcion" required [(ngModel)]="nuevoHabitacion.descripcion" name="descripcion" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Agregar Evento</button>
+    <button type="button" class="btn btn-primary" (click)="actualizarEvento()">
+    Actualizar Evento
+  </button>
+<div class="mb-4 d-flex align-items-center">
+  <input type="number" class="form-control me-2" placeholder="Buscar Evento por ID" [(ngModel)]="idBusqueda" name="idBusqueda" />
+  <button class="btn btn-info" (click)="buscarEventoPorId()">Buscar</button>
+</div>  
+</form>
+<div style="padding: 50px;">
+    <h1 class="text-center">Eventos 'DomoticHouse'</h1>
+    <table class ="table table-hover">
+        <thead class="table-danger">
+            <tr>
+                <th scope="col">Numero</th>
+                <th scope="col">tipo de evento</th>
+                <th scope="col">Fecha/Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+          @for (item of eventoList; track $index){
+            <tr>
+                <th scope="row">{{item.event_id}}</th>
+                <td>{{item.tipo_evento}}</td>
+                <td>{{item.fecha_hora}}</td>
+                <td>
+       
+        <button class="btn btn-danger btn-sm" (click)="eliminarEvento(item.id)">
+          Eliminar
+        </button>
+      </td>
+            </tr>
+          }
+        </tbody>
+
+    </table>
+</div>

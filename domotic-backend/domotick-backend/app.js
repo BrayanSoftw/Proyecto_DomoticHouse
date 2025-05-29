@@ -1,14 +1,15 @@
+import express from 'express';
+import cors from 'cors';
 
-const express = require('express');
+import authRoutes from './routes/auth.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import habitacionRoutes from './routes/habitacionRoutes.js';
+import dispositivoRoutes from './routes/dispositivoRoutes.js';
+import eventoRoutes from './routes/eventoRoutes.js';
+import configRoutes from './routes/configRoutes.js';
+
 const app = express();
-
-const authRoutes = require('./routes/auth');
-const usuarioRoutes = require('./routes/usuarioRoutes');
-const habitacionRoutes = require('./routes/habitacionRoutes');
-const dispositivoRoutes = require('./routes/dispositivoRoutes');
-const eventoRoutes = require('./routes/eventoRoutes');
-const configRoutes = require('./routes/configRoutes');
-
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);

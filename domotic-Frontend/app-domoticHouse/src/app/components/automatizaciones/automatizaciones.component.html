@@ -1,1 +1,55 @@
-<p>automatizaciones works!</p>
+<mat-toolbar color="primary">
+  <span>Automatizaciones Domóticas</span>
+</mat-toolbar>
+
+<div class="contenedor">
+  <button mat-raised-button color="accent" (click)="mostrarFormularioCrear()">Nueva Automatización</button>
+
+  <mat-card *ngIf="mostrarFormulario">
+    <form [formGroup]="formulario" (ngSubmit)="guardar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Condición</mat-label>
+        <input matInput formControlName="condicion" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Acción</mat-label>
+        <input matInput formControlName="accion" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option value="activo">Activo</mat-option>
+          <mat-option value="inactivo">Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+  </mat-card>
+
+  <div class="paneles">
+    <mat-card class="panel" *ngFor="let automatizacion of automatizaciones">
+      <h2>{{ automatizacion.nombre }}</h2>
+      <p><b>Condición:</b> {{ automatizacion.condicion }}</p>
+      <p><b>Acción:</b> {{ automatizacion.accion }}</p>
+      <p><b>Estado:</b> {{ automatizacion.estado }}</p>
+
+      <div class="acciones">
+        <button mat-icon-button color="primary" (click)="editar(automatizacion)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminar(automatizacion.config_id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

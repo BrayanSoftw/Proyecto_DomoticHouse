@@ -1,5 +1,6 @@
 // usuario.ts
 export interface Usuario {
+  id?:number;
   user_id?: number;
   nombre: string;
   apellido: string;

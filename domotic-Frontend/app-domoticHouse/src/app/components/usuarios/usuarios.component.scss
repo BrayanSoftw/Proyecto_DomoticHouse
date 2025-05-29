@@ -1,0 +1,33 @@
+.contenedor {
+  padding: 20px;
+  background-color: #e2f4fb; // 🎨 Fondo claro para mejor contraste
+  border-radius: 12px; // 🎨 Bordes suaves
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); // 🎨 Sombra elegante
+}
+
+mat-toolbar {
+  background: linear-gradient(45deg, #3173b9, #00c6ff); // 🎨 Efecto degradado en la barra
+  color: white;
+  font-size: 18px;
+}
+
+mat-card {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgb(118, 137, 156);
+  border-radius: 10px; // 🎨 Bordes más suaves
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15); // 🎨 Sombra ligera
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  background: rgb(3, 36, 39);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(163, 129, 129, 0.1); // 🎨 Efecto sutil
+}

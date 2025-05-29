@@ -1,1 +1,39 @@
-<p>habitaciones works!</p>
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+  <label for="nombre">Nombre:</label>
+  <input type="text" formControlName="nombre" placeholder="Ej. Dormitorio Principal">
+
+  <label for="piso">Piso:</label>
+  <input type="number" formControlName="piso" placeholder="Ej. 1">
+
+  <label for="area">Área (m²):</label>
+  <input type="number" formControlName="area" placeholder="Ej. 25">
+
+  <label for="descripcion">Descripción:</label>
+  <textarea formControlName="descripcion" rows="3" placeholder="Detalles de la habitación..."></textarea>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Piso</th>
+      <th>Área</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let habitacion of habitaciones">
+      <td>{{ habitacion.nombre }}</td>
+      <td>{{ habitacion.piso }}</td>
+      <td>{{ habitacion.area }}</td>
+      <td>{{ habitacion.descripcion }}</td>
+      <td class="acciones">
+        <button (click)="editar(habitacion)">Editar</button>
+        <button (click)="eliminar(habitacion.room_id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
